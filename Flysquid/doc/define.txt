@@ -1,0 +1,4 @@
+* menu shell -- container for menu items.
+* menubar -- is a thing which sits on the top of window. 
+* menu -- is what drops down when you click menu item in menubar.
+

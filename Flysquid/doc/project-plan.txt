@@ -1,0 +1,68 @@
+ 
+        
+                                [  Flying Squid Road Map  ]
+                       
+                
+
+
+Phase I [ Front end GUI Design and Im. - Preliminary Phase]
+
+1.1 Design Main Window [ toolbar and buttons ]
+1.1.1 start stop debug admin and help buttons.
+1.1.2 Learn IPC , threads , signals and c/s programming fundamentals.
+1.1.3 Create FS server and stop and start that server by creating FS client . [ FS client is gtk callback stuff]
+1.1.4 Document the protocol for the FS client/server model.[hacking telnet design ] 
+ 
+1.2 Create 12 sub windows in the same window [From FS admin button ]
+1.3 Each sub window has tag name,description,option(s) and 
+       arguments to choose.
+1.3.1 write callback functions for all sub window options.
+[ FS client continued ]
+1.4 After that a OK and  CANCEL buttons. That's ALL.
+
+
+
+
+
+
+Phase II [ MPI design and Im. - Core Phase ]
+
+ 
+2.1 Find about the squid internal data structure.
+2.2 Create an interface inside squid to run the FS server.
+2.3 Insert FS module[server] inside squid.
+[ 2.2 along 2.3 is squid patch ]
+
+
+Phase III [ testing ]
+ 
+3.1 Heavily test the program.
+
+Phase IV [ bug fixing and removing depreciated API ]
+
+4.1 Fix the bugs. Remove depreciated API 
+
+Phase V [ Documentation ]
+
+5.1 Write a flying squid hacker's guide.
+
+[ Look other hacker's guide to see the format - ex: xine HG and Hurd HG]
+
+
+Phase VI [ Unix source ]
+
+6.1 Create a POSIX compactible source.[with Squid patch ]
+      [Using GNU tools ]
+
+
+Phase VII [ debianize ]
+
+7.1 make a debian package [ both flying squid as well
+ as patched squid ][ CONTRIBUTE IT!!!]
+ 
+
+
+Happy Hacking.
+
+
+

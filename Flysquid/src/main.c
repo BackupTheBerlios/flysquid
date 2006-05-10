@@ -24,10 +24,10 @@ startserver   ()
 {
 	
         FSstartwindow = gtk_window_new (GTK_WINDOW_TOPLEVEL);
-	gtk_window_set_type_hint(FSstartwindow,GDK_WINDOW_TYPE_HINT_MENU);
-	gtk_window_set_resizable(FSstartwindow,FALSE);
+	gtk_window_set_type_hint(GTK_WINDOW(FSstartwindow),GDK_WINDOW_TYPE_HINT_MENU);
+	gtk_window_set_resizable(GTK_WINDOW(FSstartwindow),FALSE);
 	gtk_widget_set_size_request (GTK_WIDGET (FSstartwindow), 200, 100);
-        gtk_window_set_title (GTK_WINDOW(FSstartwindow), "FlySquid" );
+        gtk_window_set_title (GTK_WINDOW(FSstartwindow), "NetFly" );
 	gtk_widget_show(FSstartwindow);
 } 
 
@@ -69,7 +69,7 @@ gtk_box_pack_start (GTK_BOX (mainvbox), mainhbox, FALSE,FALSE,10);
 gtk_container_add (GTK_CONTAINER (mainwindow), mainvbox);
 
 gtk_widget_set_size_request (GTK_WIDGET (mainwindow), 600, 400);
-gtk_window_set_title (GTK_WINDOW(mainwindow), "FlySquid -  Multipurpose Squid Front End" );
+gtk_window_set_title (GTK_WINDOW(mainwindow), "NetFly -  FAST Surfing" );
 gtk_toolbar_set_orientation (GTK_TOOLBAR (maintoolbar), GTK_ORIENTATION_HORIZONTAL);
 gtk_toolbar_set_style (GTK_TOOLBAR (maintoolbar), GTK_TOOLBAR_BOTH);
 gtk_container_set_border_width (GTK_CONTAINER (maintoolbar), 5);

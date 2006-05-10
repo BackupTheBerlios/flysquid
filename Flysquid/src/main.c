@@ -23,11 +23,11 @@ GtkWidget *FSstartwindow;
 startserver   ()
 {
 	
-    FSstartwindow = gtk_window_new (GTK_WINDOW_TOPLEVEL);
+        FSstartwindow = gtk_window_new (GTK_WINDOW_TOPLEVEL);
 	gtk_window_set_type_hint(FSstartwindow,GDK_WINDOW_TYPE_HINT_MENU);
 	gtk_window_set_resizable(FSstartwindow,FALSE);
 	gtk_widget_set_size_request (GTK_WIDGET (FSstartwindow), 200, 100);
-    gtk_window_set_title (GTK_WINDOW(FSstartwindow), "FlySquid" );
+        gtk_window_set_title (GTK_WINDOW(FSstartwindow), "FlySquid" );
 	gtk_widget_show(FSstartwindow);
 } 
 

@@ -1,5 +1,5 @@
 /*
- * $Id: simpleproxy.c,v 1.1 2006/09/22 14:43:51 ahiliation Exp $
+ * $Id: simpleproxy.c,v 1.2 2006/09/28 14:37:24 ahiliation Exp $
  * ---------------------------------------------------------------------
  *
  * Simple proxy daemon 
@@ -174,7 +174,7 @@ int netfly(int ac, char **av)
     char  *HTTPAuthHash = nil;
 
     /* Check for the arguments, and overwrite values from cfg file */
-    while((c = getopt(ac, "f", "iVv7dhL:R:H:f:p:P:D:S:s:a:t:")) != -1)
+    while((c = getopt(ac , av , "iVv7dhL:R:H:f:p:P:D:S:s:a:t:")) != -1)
         switch (c)
         {
         case 'v':

@@ -21,9 +21,20 @@
 
 GtkWidget *FSstartwindow;
 
-startserver (struct clp *clptr)
+struct clp
+  {
+
+    int argd;
+    char **argy;
+
+  };
+
+struct clp clppoint;
+struct clp clppointp;
+
+startserver (clppointp)
 {
-  netfly ();
+  netfly (clppointp.argd,clppointp.argy);
   FSstartwindow = gtk_window_new (GTK_WINDOW_TOPLEVEL);
   gtk_window_set_type_hint (GTK_WINDOW (FSstartwindow),
 			    GDK_WINDOW_TYPE_HINT_MENU);
@@ -34,7 +45,7 @@ startserver (struct clp *clptr)
 }
 
 
-main (int argc, char *argv[])
+main (int argc, char **argv)
 {
   GtkWidget *mainwindow;
   GtkWidget *buttonFSstop;
@@ -46,20 +57,20 @@ main (int argc, char *argv[])
   GtkWidget *mainvbox;
   GtkWidget *maintoolbar;
 
-  struct clp
+/*  struct clp
   {
 
-    int *argd;
-    char **argy[10];
+    int argd;
+    char **argy;
 
   };
 
-  struct clp *clppoint;
+  struct clp clppoint;*/
 
   gtk_init (&argc, &argv);
 
-  clppoint->argd = &argc;
-  clppoint->argy[10] = &argv;
+  clppoint.argd = argc;
+  clppoint.argy = argv;
 
   mainwindow = gtk_window_new (GTK_WINDOW_TOPLEVEL);
   mainhbox = gtk_hbox_new (TRUE, 0);
@@ -98,7 +109,7 @@ main (int argc, char *argv[])
   gtk_widget_show_all (mainwindow);
 
   g_signal_connect (G_OBJECT (buttonFSstart), "clicked",
-		    G_CALLBACK (startserver), clppoint);
+		    G_CALLBACK (startserver), &clppoint);
 
 
 

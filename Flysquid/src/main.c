@@ -21,20 +21,18 @@
 
 GtkWidget *FSstartwindow;
 
-struct clp
+/* struct clp
   {
 
     int argd;
     char **argy;
 
-  };
+  };*/
 
-struct clp clppoint;
-struct clp clppointp;
+/* struct clp clppoint;*/
 
-startserver (clppointp)
+/*int startserver ()
 {
-  netfly (clppointp.argd,clppointp.argy);
   FSstartwindow = gtk_window_new (GTK_WINDOW_TOPLEVEL);
   gtk_window_set_type_hint (GTK_WINDOW (FSstartwindow),
 			    GDK_WINDOW_TYPE_HINT_MENU);
@@ -42,6 +40,12 @@ startserver (clppointp)
   gtk_widget_set_size_request (GTK_WIDGET (FSstartwindow), 200, 100);
   gtk_window_set_title (GTK_WINDOW (FSstartwindow), "NetFly");
   gtk_widget_show (FSstartwindow);
+}*/
+
+
+int accept (int argd, char **argy)
+{
+netfly(argd,argy);
 }
 
 
@@ -57,6 +61,13 @@ main (int argc, char **argv)
   GtkWidget *mainvbox;
   GtkWidget *maintoolbar;
 
+
+
+int pass()
+{
+accept (argc,argv);
+}
+
 /*  struct clp
   {
 
@@ -69,8 +80,8 @@ main (int argc, char **argv)
 
   gtk_init (&argc, &argv);
 
-  clppoint.argd = argc;
-  clppoint.argy = argv;
+/*  clppoint.argd = argc;
+  clppoint.argy = argv;*/
 
   mainwindow = gtk_window_new (GTK_WINDOW_TOPLEVEL);
   mainhbox = gtk_hbox_new (TRUE, 0);
@@ -109,8 +120,7 @@ main (int argc, char **argv)
   gtk_widget_show_all (mainwindow);
 
   g_signal_connect (G_OBJECT (buttonFSstart), "clicked",
-		    G_CALLBACK (startserver), &clppoint);
-
+		    G_CALLBACK (pass),NULL);
 
 
   gtk_main ();

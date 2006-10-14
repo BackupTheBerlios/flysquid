@@ -50,9 +50,16 @@ char **argx;
 argx= (char **) argz;
 netfly(argd,argx);
 }*/
-void netfly (GtkButton *buttonFSstart, char **argz);
+void netfly (GtkButton * buttonFSstart, char **argz);
+static gboolean
+window_delete (GtkWidget * widget, GdkEvent * event, gpointer data)
+{
+  gtk_main_quit ();
+  return FALSE;
+}
 
-int main (int argc, char **argv)
+int
+main (int argc, char **argv)
 {
   GtkWidget *mainwindow;
   GtkWidget *buttonFSstop;
@@ -73,7 +80,7 @@ int main (int argc, char **argv)
 
   struct clp clppoint;*/
 
-  gtk_init (&argc,&argv);
+  gtk_init (&argc, &argv);
 
 /*  clppoint.argd = argc;
   clppoint.argy = argv;*/
@@ -113,9 +120,11 @@ int main (int argc, char **argv)
 
 
   gtk_widget_show_all (mainwindow);
+  g_signal_connect (G_OBJECT (mainwindow), "delete_event",
+		    G_CALLBACK (window_delete), NULL);
 
   g_signal_connect (G_OBJECT (buttonFSstart), "clicked",
-		    G_CALLBACK (netfly),argv);
+		    G_CALLBACK (netfly), argv);
 
 
   gtk_main ();

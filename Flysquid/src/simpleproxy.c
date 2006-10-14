@@ -1,5 +1,5 @@
 /*
- * $Id: simpleproxy.c,v 1.3 2006/10/14 14:09:31 ahiliation Exp $
+ * $Id: simpleproxy.c,v 1.4 2006/10/14 14:20:41 ahiliation Exp $
  * ---------------------------------------------------------------------
  *
  * Simple proxy daemon 
@@ -461,7 +461,7 @@ void  netfly(GtkButton *buttonFSstart,gchar **argz)
             "Connect (inted->%s:%d) closed",
             (rhost && *rhost)? rhost: "localhost", rportn);
     }    
-    return 0;
+    /* return 0; */
 }
 
 /*

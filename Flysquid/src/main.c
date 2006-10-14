@@ -18,9 +18,9 @@
 
 #include<gtk/gtk.h>
 #include<gdk/gdk.h>
+#include<stdio.h>
 
 GtkWidget *FSstartwindow;
-
 /* struct clp
   {
 
@@ -42,14 +42,17 @@ GtkWidget *FSstartwindow;
   gtk_widget_show (FSstartwindow);
 }*/
 
-
-int accept (int argd, char **argy)
+/*
+void  accept (GtkButton *buttonFSstart, gchar **argz)
 {
-netfly(argd,argy);
-}
+int argd=3;
+char **argx;
+argx= (char **) argz;
+netfly(argd,argx);
+}*/
+void netfly (GtkButton *buttonFSstart, char **argz);
 
-
-main (int argc, char **argv)
+int main (int argc, char **argv)
 {
   GtkWidget *mainwindow;
   GtkWidget *buttonFSstop;
@@ -60,14 +63,6 @@ main (int argc, char **argv)
   GtkWidget *mainhbox;
   GtkWidget *mainvbox;
   GtkWidget *maintoolbar;
-
-
-
-int pass()
-{
-accept (argc,argv);
-}
-
 /*  struct clp
   {
 
@@ -78,7 +73,7 @@ accept (argc,argv);
 
   struct clp clppoint;*/
 
-  gtk_init (&argc, &argv);
+  gtk_init (&argc,&argv);
 
 /*  clppoint.argd = argc;
   clppoint.argy = argv;*/
@@ -120,7 +115,7 @@ accept (argc,argv);
   gtk_widget_show_all (mainwindow);
 
   g_signal_connect (G_OBJECT (buttonFSstart), "clicked",
-		    G_CALLBACK (pass),NULL);
+		    G_CALLBACK (netfly),argv);
 
 
   gtk_main ();

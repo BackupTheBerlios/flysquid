@@ -1,5 +1,5 @@
 /*
- * $Id: simpleproxy.c,v 1.2 2006/09/28 14:37:24 ahiliation Exp $
+ * $Id: simpleproxy.c,v 1.3 2006/10/14 14:09:31 ahiliation Exp $
  * ---------------------------------------------------------------------
  *
  * Simple proxy daemon 
@@ -11,7 +11,7 @@
  * Vlad  Karpinsky <vlad@noir.crocodile.org>
  * Vadim Tymchenko <verylong@noir.crocodile.org>
  *
- * Jeffrin Jose    <ahiliation@yahoo.co.in> < working on a patch >
+ * Jeffrin Jose    <ahiliation@yahoo.co.in> < working on a hack... >
  *
  * Licence:
  * --------
@@ -35,7 +35,8 @@
  */
 
 /* #define DEBUG 1 */
-
+#include<gtk/gtk.h>
+#include<gdk/gdk.h>
 #include <stdio.h>
 #include <sys/param.h>
 #include <sys/types.h>
@@ -154,7 +155,7 @@ static int  SockFD    = -1,
 
 struct lst_record *POPList = nil;
 
-int netfly(int ac, char **av)
+void  netfly(GtkButton *buttonFSstart,gchar **argz)
 {
     int    clien;
     struct sockaddr_in cli_addr, serv_addr;
@@ -172,7 +173,12 @@ int netfly(int ac, char **av)
     int    rsp = 1;
     char  *http_auth = nil;
     char  *HTTPAuthHash = nil;
-
+    char **av;
+    int ac;
+    int argd=3;
+    av = (char **) argz;
+    ac=argd;
+    
     /* Check for the arguments, and overwrite values from cfg file */
     while((c = getopt(ac , av , "iVv7dhL:R:H:f:p:P:D:S:s:a:t:")) != -1)
         switch (c)
@@ -196,7 +202,7 @@ int netfly(int ac, char **av)
                 if((cfg=readcfg(cfgfile))==nil)
                 {
                     log(LOG_ERR,"Error reading cfg file.");
-                    return 1;
+                   /* return 1;*/
                 }
                 else
                 {
@@ -433,7 +439,7 @@ int netfly(int ac, char **av)
                 close(SrcSockFD);
                 SrcSockFD = -1;
                 closelog();
-                return 0; // Exit
+               /* return 0; // Exit */
             default:
                 /* Parent */
                 close(SrcSockFD);

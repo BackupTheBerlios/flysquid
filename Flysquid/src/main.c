@@ -92,19 +92,19 @@ main (int argc, char **argv)
 
 
   buttonFSstart = gtk_toolbar_append_item
-    (GTK_TOOLBAR (maintoolbar), "FS start", "Start Server", NULL, NULL, NULL,
+    (GTK_TOOLBAR (maintoolbar), "NF start", "Start Server", NULL, NULL, NULL,
      NULL);
   buttonFSstop =
-    gtk_toolbar_append_item (GTK_TOOLBAR (maintoolbar), "FS stop",
+    gtk_toolbar_append_item (GTK_TOOLBAR (maintoolbar), "NF stop",
 			     "Stop Server", NULL, NULL, NULL, NULL);
   buttonFSdebug =
-    gtk_toolbar_append_item (GTK_TOOLBAR (maintoolbar), "FS debug",
+    gtk_toolbar_append_item (GTK_TOOLBAR (maintoolbar), "NF debug",
 			     "Debug Server", NULL, NULL, NULL, NULL);
   buttonFSadmin =
-    gtk_toolbar_append_item (GTK_TOOLBAR (maintoolbar), "FS admin",
+    gtk_toolbar_append_item (GTK_TOOLBAR (maintoolbar), "NF admin",
 			     "On Fly Administration", NULL, NULL, NULL, NULL);
   buttonFShelp =
-    gtk_toolbar_append_item (GTK_TOOLBAR (maintoolbar), "FS help", "Help",
+    gtk_toolbar_append_item (GTK_TOOLBAR (maintoolbar), "NF help", "Help",
 			     NULL, NULL, NULL, NULL);
 
   gtk_box_pack_start (GTK_BOX (mainhbox), maintoolbar, FALSE, FALSE, 10);

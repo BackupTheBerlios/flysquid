@@ -50,7 +50,7 @@ char **argx;
 argx= (char **) argz;
 netfly(argd,argx);
 }*/
-void netfly (GtkButton * buttonFSstart, char **argz);
+void netfly (GtkButton *buttonFSstart, char **argz);
 static gboolean
 window_delete (GtkWidget * widget, GdkEvent * event, gpointer data)
 {
@@ -117,7 +117,7 @@ main (int argc, char **argv)
 			       GTK_ORIENTATION_HORIZONTAL);
   gtk_toolbar_set_style (GTK_TOOLBAR (maintoolbar), GTK_TOOLBAR_BOTH);
   gtk_container_set_border_width (GTK_CONTAINER (maintoolbar), 5);
-
+  gtk_window_set_resizable (GTK_WINDOW (mainwindow), FALSE);
 
   gtk_widget_show_all (mainwindow);
   g_signal_connect (G_OBJECT (mainwindow), "delete_event",

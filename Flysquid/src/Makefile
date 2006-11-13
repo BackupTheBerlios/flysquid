@@ -1,7 +1,7 @@
 RM=rm -f
 
-netfly : main.c
-	gcc -o netfly main.c `pkg-config --cflags --libs gtk+-2.0`
+netfly : main.c cfg.c simpleproxy.c
+	gcc -o netfly main.c cfg.c simpleproxy.c `pkg-config gtk+-2.0 --cflags --libs`
 
 
 clean:

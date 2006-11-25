@@ -21,38 +21,10 @@
 #include<stdio.h>
 
 GtkWidget *FSstartwindow;
-/* struct clp
-  {
 
-    int argd;
-    char **argy;
-
-  };*/
-
-/* struct clp clppoint;*/
-
-/*int startserver ()
-{
-  FSstartwindow = gtk_window_new (GTK_WINDOW_TOPLEVEL);
-  gtk_window_set_type_hint (GTK_WINDOW (FSstartwindow),
-			    GDK_WINDOW_TYPE_HINT_MENU);
-  gtk_window_set_resizable (GTK_WINDOW (FSstartwindow), FALSE);
-  gtk_widget_set_size_request (GTK_WIDGET (FSstartwindow), 175, 75);
-  gtk_window_set_title (GTK_WINDOW (FSstartwindow), "NetFly");
-  gtk_widget_show (FSstartwindow);
-}*/
-
-/*
-void  accept (GtkButton *buttonFSstart, gchar **argz)
-{
-int argd=3;
-char **argx;
-argx= (char **) argz;
-netfly(argd,argx);
-}*/
 void netfly (GtkButton * buttonFSstart, char **argz);
 
-
+/*
 static GIOChannel *
 iochannel (gint fd, GIOCondition cond, GIOFunc func, gpointer data)
 {
@@ -64,7 +36,7 @@ iochannel (gint fd, GIOCondition cond, GIOFunc func, gpointer data)
   g_io_add_watch (iochannel, cond, func, data);
   g_io_channel_unref (iochannel);
   return iochannel;
-}
+}*/
 
 
 

@@ -37,7 +37,7 @@ GtkWidget *FSstartwindow;
   gtk_window_set_type_hint (GTK_WINDOW (FSstartwindow),
 			    GDK_WINDOW_TYPE_HINT_MENU);
   gtk_window_set_resizable (GTK_WINDOW (FSstartwindow), FALSE);
-  gtk_widget_set_size_request (GTK_WIDGET (FSstartwindow), 200, 100);
+  gtk_widget_set_size_request (GTK_WIDGET (FSstartwindow), 175, 75);
   gtk_window_set_title (GTK_WINDOW (FSstartwindow), "NetFly");
   gtk_widget_show (FSstartwindow);
 }*/
@@ -50,7 +50,17 @@ char **argx;
 argx= (char **) argz;
 netfly(argd,argx);
 }*/
-void netfly (GtkButton *buttonFSstart, char **argz);
+void netfly (GtkButton * buttonFSstart, char **argz);
+
+
+static GIOChannel *iochannel(gint fd , GIOCondition cond, GIOFunc func, gpointer data)
+GIOChannel *iochannel;
+iochannel=g_io_channel_unix_new(fd);
+g_io_channel_set_encoding(iochannel,NULL,NULL);
+g_io_channel_set_buffered(iochannel,FALSE);
+
+
+
 static gboolean
 window_delete (GtkWidget * widget, GdkEvent * event, gpointer data)
 {

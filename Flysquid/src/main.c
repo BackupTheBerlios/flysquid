@@ -53,11 +53,18 @@ netfly(argd,argx);
 void netfly (GtkButton * buttonFSstart, char **argz);
 
 
-static GIOChannel *iochannel(gint fd , GIOCondition cond, GIOFunc func, gpointer data)
-GIOChannel *iochannel;
-iochannel=g_io_channel_unix_new(fd);
-g_io_channel_set_encoding(iochannel,NULL,NULL);
-g_io_channel_set_buffered(iochannel,FALSE);
+static GIOChannel *
+iochannel (gint fd, GIOCondition cond, GIOFunc func, gpointer data)
+{
+  GIOChannel *iochannel;
+  iochannel = g_io_channel_unix_new (fd);
+  g_io_channel_set_encoding (iochannel, NULL, NULL);
+  g_io_channel_set_buffered (iochannel, FALSE);
+  g_io_channel_set_close_on_unref (iochannel, TRUE);
+  g_io_add_watch (iochannel, cond, func, data);
+  g_io_channel_unref (iochannel);
+  return iochannel;
+}
 
 
 

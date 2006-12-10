@@ -1,5 +1,5 @@
 /* 
- * Copyright (C) 2005 Dovake <dovake@gmail.com>
+ * Copyright (C) 2005 Jeffrin Jose <ahiliation@yahoo.co.in>
  * 
  *  This program is free software; you can redistribute it and/or modify
  *  it under the terms of the GNU General Public License as published by

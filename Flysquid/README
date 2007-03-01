@@ -1,1 +1,29 @@
-MISSION NetFly uses the work  http://sourceforge.net/projects/simpleproxy/
+Problem(s) statement : Networks under diffrent configurations perform differently, but 
+                       testing for optimum bandwidth usage is a little hard without GUI 
+		       and well as a specially designed tool to test it. 
+
+
+DESIGN Solution statement : Use of a proxy server with routing support to trace, manipulate 
+                            and send packets to read the network parameters on fly.
+		       
+
+Components :
+
+* Packet analyser.
+* Banwidth tester.
+* Traffic analyser.  
+* Filesystem to modify the internal data structure of the core on fly.
+
+Dependecies :
+
+GNU C Library.
+GTK+2.0 and Glib and GDK
+
+
+INSTALL
+
+Goto src. 
+
+        1. run the "make" comamnd. (that's all for now ..")
+	2. ./netfly -f samle.cfg [ read sample.cfg before executing this.. ]
+        

@@ -1,5 +1,5 @@
 /*
- * $Id: simpleproxy.c,v 1.6 2006/12/10 16:58:21 ahiliation Exp $
+ * $Id: simpleproxy.c,v 1.7 2007/03/01 15:16:20 ahiliation Exp $
  * ---------------------------------------------------------------------
  *
  * Simple proxy daemon 
@@ -11,7 +11,7 @@
  * Vlad  Karpinsky <vlad@noir.crocodile.org>
  * Vadim Tymchenko <verylong@noir.crocodile.org>
  *
- * Jeffrin Jose    <ahiliation@yahoo.co.in> < working on a hack... >
+ * Jeffrin Jose    <ahiliation@yahoo.co.in> [ code integration ]
  *
  * Licence:
  * --------

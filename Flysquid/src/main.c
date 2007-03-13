@@ -24,19 +24,26 @@ GtkWidget *FSstartwindow;
 
 void netfly (GtkButton * buttonFSstart, char **argz);
 
-/*
+
 static GIOChannel *
 iochannel (gint fd, GIOCondition cond, GIOFunc func, gpointer data)
 {
-  GIOChannel *iochannel;
-  iochannel = g_io_channel_unix_new (fd);
-  g_io_channel_set_encoding (iochannel, NULL, NULL);
-  g_io_channel_set_buffered (iochannel, FALSE);
-  g_io_channel_set_close_on_unref (iochannel, TRUE);
-  g_io_add_watch (iochannel, cond, func, data);
-  g_io_channel_unref (iochannel);
-  return iochannel;
-}*/
+  GIOChannel *iocl;
+
+/* set up handler for data */
+  iocl = g_io_channel_unix_new (fd);
+
+/* set up io channel encoding for binary data */
+  g_io_channel_set_encoding (iocl, NULL, NULL);
+  g_io_channel_set_buffered (iocl, FALSE);
+
+  g_io_channel_set_close_on_unref (iocl, TRUE);
+
+  g_io_add_watch (iocl, cond, func, data);
+  g_io_channel_unref (iocl);
+
+  return iocl;
+}
 
 
 
@@ -59,20 +66,9 @@ main (int argc, char **argv)
   GtkWidget *mainhbox;
   GtkWidget *mainvbox;
   GtkWidget *maintoolbar;
-/*  struct clp
-  {
-
-    int argd;
-    char **argy;
-
-  };
-
-  struct clp clppoint;*/
 
   gtk_init (&argc, &argv);
 
-/*  clppoint.argd = argc;
-  clppoint.argy = argv;*/
 
   mainwindow = gtk_window_new (GTK_WINDOW_TOPLEVEL);
   mainhbox = gtk_hbox_new (TRUE, 0);

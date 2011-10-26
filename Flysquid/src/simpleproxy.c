@@ -1,5 +1,5 @@
 /*
- * $Id: simpleproxy.c,v 1.7 2007/03/01 15:16:20 ahiliation Exp $
+ * $Id: simpleproxy.c,v 1.8 2011/10/26 12:13:40 ahiliation Exp $
  * ---------------------------------------------------------------------
  *
  * Simple proxy daemon 
@@ -11,7 +11,7 @@
  * Vlad  Karpinsky <vlad@noir.crocodile.org>
  * Vadim Tymchenko <verylong@noir.crocodile.org>
  *
- * Jeffrin Jose    <ahiliation@yahoo.co.in> [ code integration ]
+ * Jeffrin Jose    <ahiliation@yahoo.co.in> 
  *
  * Licence:
  * --------
@@ -35,8 +35,8 @@
  */
 
 /* #define DEBUG 1 */
-#include<gtk/gtk.h>
-#include<gdk/gdk.h>
+/* #include<gtk/gtk.h> */
+/* #include<gdk/gdk.h> */
 #include <stdio.h>
 #include <sys/param.h>
 #include <sys/types.h>
@@ -155,7 +155,10 @@ static int  SockFD    = -1,
 
 struct lst_record *POPList = nil;
 
-void  netfly(GtkButton *buttonFSstart,gchar **argz)
+/*  void  netfly(GtkButton *buttonFSstart,gchar **argz) */ 
+/*  { */
+
+main (int ac,char **av)
 {
     int    clien;
     struct sockaddr_in cli_addr, serv_addr;
@@ -173,11 +176,11 @@ void  netfly(GtkButton *buttonFSstart,gchar **argz)
     int    rsp = 1;
     char  *http_auth = nil;
     char  *HTTPAuthHash = nil;
-    char **av;
-    int ac;
+  /*  char **av;
+    int ac; */
     int argd=3;
-    av = (char **) argz;
-    ac=argd;
+  /*  av = (char **) argz; */
+   /*  ac=argd; */
     
     /* Check for the arguments, and overwrite values from cfg file */
     while((c = getopt(ac , av , "iVv7dhL:R:H:f:p:P:D:S:s:a:t:")) != -1)
@@ -305,6 +308,9 @@ void  netfly(GtkButton *buttonFSstart,gchar **argz)
     {
         HTTPBasicAuthString = "";
     }
+
+    printf("HTTPAuthHash is ...%d",HTTPAuthHash);
+
 
     if (isStartedFromInetd && lportn > 0)
         errflg++;
@@ -1024,6 +1030,7 @@ static void log(int type, char *format, ...)
         } else
         {
             (void) fprintf(stderr, "simpleproxy[%d]:", (int)getpid());
+            (void) fprintf(stderr, "simpleproxy[%d]:", (int)getppid());
             (void) vfprintf(stderr, format, ap);
             (void) fprintf(stderr, "\n");
         }
@@ -1034,6 +1041,9 @@ static void log(int type, char *format, ...)
 static void ctrlc(int s)
 {
     log(LOG_INFO,"Interrupted... Shutting down connections");
+     
+    printf("LOG_INFO is ...%d",LOG_INFO);
+   
     
     if(SockFD    !=-1) 
     {
